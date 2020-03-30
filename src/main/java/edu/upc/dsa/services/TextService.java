@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 /**
  * Root resource (exposed at "myresource" path)
  */
-@Api(value = "/text", description = "Endpoint to Text Service")
+@Api(value = "/text")
 @Path("text")
 public class TextService {
 
@@ -33,7 +33,7 @@ public class TextService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String getUser(@PathParam("username") String userName) {
-        return "Hello " + userName;
+        return "Hola " + userName;
     }
 
     @Path("exception")
