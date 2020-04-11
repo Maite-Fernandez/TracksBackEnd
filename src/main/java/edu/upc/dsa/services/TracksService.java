@@ -25,9 +25,9 @@ public class TracksService {
     public TracksService() {
         this.tm = TracksManagerImpl.getInstance();
         if (tm.size()==0) {
-            this.tm.addTrack("Somebody to Love", "Queen");
-            this.tm.addTrack("Twist & Shout", "Beatles");
-            this.tm.addTrack("Enter Sandman", "Metallica");
+            this.tm.addTrack("Somebody to Love", "Queen","1976");
+            this.tm.addTrack("Twist & Shout", "Beatles", "1963");
+            this.tm.addTrack("Enter Sandman", "Metallica", "1991");
         }
 
 
@@ -87,13 +87,9 @@ public class TracksService {
     public Response updateTrack(Track track) {
 
         Track t = this.tm.updateTrack(track);
-
         if (t == null) return Response.status(404).build();
-
         return Response.status(201).build();
     }
-
-
 
     @POST
     @ApiOperation(value = "create a new Track", notes = "asdasd")
@@ -107,7 +103,7 @@ public class TracksService {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response newTrack(Track track) {
 
-        if (track.getSinger()==null || track.getTitle()==null)  return Response.status(500).entity(track).build();
+        if (track.getSinger()==null || track.getTitle()==null || track.getYear() == null)  return Response.status(500).entity(track).build();
         this.tm.addTrack(track);
         return Response.status(201).entity(track).build();
     }

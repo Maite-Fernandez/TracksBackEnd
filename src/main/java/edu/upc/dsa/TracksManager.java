@@ -7,7 +7,7 @@ import java.util.List;
 public interface TracksManager {
 
 
-    public Track addTrack(String title, String singer);
+    public Track addTrack(String title, String singer, String year);
     public Track addTrack(Track t);
     public Track getTrack(String id);
     public List<Track> findAll();

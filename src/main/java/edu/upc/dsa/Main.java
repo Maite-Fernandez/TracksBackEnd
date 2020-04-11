@@ -1,7 +1,6 @@
 package edu.upc.dsa;
 
 import io.swagger.jaxrs.config.BeanConfig;
-import io.swagger.jersey.listing.ApiListingResourceJSON;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.grizzly.http.server.StaticHttpHandler;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
@@ -35,7 +34,7 @@ public class Main {
 
         beanConfig.setHost("localhost:8080");
         beanConfig.setBasePath("/dsaApp");
-        beanConfig.setContact("support@example.com");
+        beanConfig.setContact("support@trackmanager.com");
         beanConfig.setDescription("REST API for Tracks Manager");
         beanConfig.setLicenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html");
         beanConfig.setResourcePackage("edu.upc.dsa.services");
@@ -52,8 +51,8 @@ public class Main {
 
     /**
      * Main method.
-     * @param args
-     * @throws IOException
+     * @param args - Argument
+     * @throws IOException -Throws IOException
      */
     public static void main(String[] args) throws IOException {
         final HttpServer server = startServer();
@@ -61,11 +60,11 @@ public class Main {
         StaticHttpHandler staticHttpHandler = new StaticHttpHandler("./public/");
         server.getServerConfiguration().addHttpHandler(staticHttpHandler, "/");
 
-        System.out.println(String.format("Jersey app started at "
+        System.out.println(String.format("Track Manager Api started at "
                 +"%sswagger/\nHit enter to stop it...", FOR_USE_URI));
 
         System.in.read();
-        server.stop();
+        server.shutdownNow();
     }
 }
 

@@ -7,16 +7,19 @@ public class Track {
     String id;
     String title;
     String singer;
-    static int lastId;
+    //Test variable generate getters and setters and add toString method
+    String year;
+
 
     public Track() {
         this.id = RandomUtils.getId();
     }
 
-    public Track(String title, String singer) {
+    public Track(String title, String singer, String year) {
         this();
         this.setSinger(singer);
         this.setTitle(title);
+        this.setYear(year);
     }
 
     public String getId() {
@@ -44,9 +47,13 @@ public class Track {
         this.singer = singer;
     }
 
+    public String getYear() { return year; }
+
+    public void setYear(String year) { this.year = year; }
+
     @Override
     public String toString() {
-        return "Track [id="+id+", title=" + title + ", singer=" + singer +"]";
+        return "Track [id="+id+", title=" + title + ", singer=" + singer +", year="+year+"]";
     }
 
 }

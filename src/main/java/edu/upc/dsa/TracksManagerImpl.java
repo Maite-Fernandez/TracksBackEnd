@@ -35,8 +35,8 @@ public class TracksManagerImpl implements TracksManager {
         return t;
     }
 
-    public Track addTrack(String title, String singer) {
-        return this.addTrack(new Track(title, singer));
+    public Track addTrack(String title, String singer, String year) {
+        return this.addTrack(new Track(title, singer, year));
     }
 
     public Track getTrack(String id) {
@@ -80,6 +80,7 @@ public class TracksManagerImpl implements TracksManager {
 
             t.setSinger(p.getSinger());
             t.setTitle(p.getTitle());
+            t.setYear(p.getYear());
 
             logger.info(t+" updated ");
         }
